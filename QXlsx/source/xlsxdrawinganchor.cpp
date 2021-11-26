@@ -122,8 +122,8 @@ QPoint DrawingAnchor::loadXmlPos(QXmlStreamReader &reader)
 
     QPoint pos;
     QXmlStreamAttributes attrs = reader.attributes();
-    pos.setX(attrs.value(QLatin1String("x")).toString().toInt());
-    pos.setY(attrs.value(QLatin1String("y")).toString().toInt());
+    pos.setX(attrs.value(QLatin1String("x")).toInt());
+    pos.setY(attrs.value(QLatin1String("y")).toInt());
     return pos;
 }
 
@@ -133,8 +133,8 @@ QSize DrawingAnchor::loadXmlExt(QXmlStreamReader &reader)
 
     QSize size;
     QXmlStreamAttributes attrs = reader.attributes();
-    size.setWidth(attrs.value(QLatin1String("cx")).toString().toInt());
-    size.setHeight(attrs.value(QLatin1String("cy")).toString().toInt());
+    size.setWidth(attrs.value(QLatin1String("cx")).toInt());
+    size.setHeight(attrs.value(QLatin1String("cy")).toInt());
     return size;
 }
 
@@ -438,7 +438,6 @@ void DrawingAnchor::loadXmlObjectShape(QXmlStreamReader &reader)
 
     Q_ASSERT(reader.name() == QLatin1String("sp"));
 
-    bool hasoffext = false;
     while (!reader.atEnd())
     {
         reader.readNextStartElement();
@@ -520,8 +519,8 @@ void DrawingAnchor::loadXmlObjectShape(QXmlStreamReader &reader)
             {
                 // dev24 : fixed for old Qt 5
 
-                rotWithShapeTA = reader.attributes().value(QLatin1String("rotWithShape")).toString().toInt();
-                dpiTA = reader.attributes().value(QLatin1String("dpi")).toString().toInt();
+                rotWithShapeTA = reader.attributes().value(QLatin1String("rotWithShape")).toInt();
+                dpiTA = reader.attributes().value(QLatin1String("dpi")).toInt();
 
                 // rotWithShapeTA = reader.attributes().value(QLatin1String("rotWithShape")).toInt();
                 // dpiTA = reader.attributes().value(QLatin1String("dpi")).toInt();
