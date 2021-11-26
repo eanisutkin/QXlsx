@@ -111,5 +111,7 @@ SOURCES += \
 ########################################
 # Settings for shared library - change if needed
 
+OBJECTS_DIR = ./mkspecs
+DESTDIR = ./mkspecs
 target.path = /usr/lib
 INSTALLS += target
